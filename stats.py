@@ -6,7 +6,7 @@ def count_words(text):
     words = text.split()
     return len(words)
 
-def count_chars(text):
+def create_char_count(text):
     dictionary = {}
     for c in text:
         _c = c.lower()
@@ -14,3 +14,13 @@ def count_chars(text):
             dictionary[_c] = 0
         dictionary[_c] += 1
     return dictionary
+
+def sort_on(items):
+    return items["num"]
+
+def create_report_data(dictionary):
+    char_data = []
+    for k in dictionary:
+        char_data.append({ "char": k, "num": dictionary[k] })
+    char_data.sort(reverse=True, key=sort_on)
+    return char_data
